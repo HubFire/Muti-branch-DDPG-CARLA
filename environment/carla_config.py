@@ -2,7 +2,7 @@ from carla import sensor
 from carla.settings import CarlaSettings
 import random
 """
-Example of dataset configuration. See a more complex example at coil_training_dataset.py
+Example of dataset configuration. 
 """
 # The image size definition for the cameras
 WINDOW_WIDTH = 800
@@ -127,5 +127,5 @@ def test():
         index = random.randint(0,3)
         pose = random.choice(all_pose[index])
         print(pose)
-test()
+
 
