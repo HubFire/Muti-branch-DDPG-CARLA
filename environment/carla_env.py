@@ -2,7 +2,6 @@ from carla.client import CarlaClient,make_carla_client
 from carla.settings import CarlaSettings
 from carla.sensor import Camera
 from carla.carla_server_pb2 import Control
-
 from carla.planner.planner import  Planner
 from carla.tcp import TCPConnectionError
 from carla.client import VehicleControl
@@ -18,9 +17,6 @@ import os
 from PIL import Image
 import numpy as np
 from enum  import Enum
-
-
-
 
 class action_space(object):
 	def __init__(self, dim, high, low, seed):
@@ -69,12 +65,10 @@ class Env(object):
 		#featured image,speed,steer,other lane ,offroad,
 		#collision with pedestrians,vehicles,other
 		#self.observation_space = observation_space(512 + 7)
-
 		self.max_episode = 1000000
 		self.time_out_step = 10000
 		self.max_speed = 35
 		self.speed_up_steps = 20 
-
 		self.current_episode = 0
 		self.weather = -1
 		self.current_step = 0
@@ -85,12 +79,9 @@ class Env(object):
 		self.number_of_vehicles = None
 		self.control = None
 		self.nospeed_times =0
-		
 		self.reward = 0
 		self.observation = None
 		self.done =False
-	   
-
 		self.load_config()
 		self.setup_client_and_server()
 
@@ -118,8 +109,6 @@ class Env(object):
 		# self.number_of_pedestrians = random.randint( self.vehicle_pair[0],self.vehicle_pair[1])
 		self.number_of_vehicles = 0
 		self.number_of_pedestrians = 0
-		
-
 		self.weather = random.choice(self.weather_set)
 		
 		settings = carla_config.make_carla_settings()
